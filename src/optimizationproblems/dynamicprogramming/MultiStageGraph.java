@@ -12,7 +12,7 @@ public class MultiStageGraph {
         MultiStageGraph msg = new MultiStageGraph();
         List<GraphVertex> vertices = msg.generateListOfVertices();
 //        int[][] matrix = msg.calculateEdges(vertices);
-//        Utilities.printMatrix(matrix);
+//        Utilities.printMatrixSkipZeroRowAndColumn(matrix);
 
         int[] optimalPath = msg.findPath(vertices, 4);
         Utilities.printIntArray(optimalPath);
@@ -47,11 +47,11 @@ public class MultiStageGraph {
         //start of the path is always first (source) vertex
         path[0] = 1;
         //end of the path is always last (sink) vertex
-        path[stages-1] = verticesNumber;
+        path[stages - 1] = verticesNumber;
 
         //based on destination array for vertices, calculate the optimal path
         for (int i = 1; i < stages - 1; i++) {
-            path[i] = dest[path[i-1]];
+            path[i] = dest[path[i - 1]];
         }
 
         return path;
@@ -81,6 +81,7 @@ public class MultiStageGraph {
 
     /**
      * This method is used to set up a proper MultiStage Graph with directions and its weights
+     *
      * @return List of all vertices of the graph
      */
     List<GraphVertex> generateListOfVertices() {

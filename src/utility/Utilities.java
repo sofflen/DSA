@@ -6,7 +6,8 @@ import java.util.Map;
 
 public class Utilities {
 
-    private Utilities() {}
+    private Utilities() {
+    }
 
     public static void printIntArray(int[] arr) {
         for (int j : arr) {
@@ -46,9 +47,28 @@ public class Utilities {
     public static void printMatrix(int[][] matrix) {
         for (int[] ints : matrix) {
             for (int anInt : ints) {
-                System.out.print(anInt + " ");
+                if (999999 == anInt) {
+                    System.out.print("INF ");
+                } else {
+                    System.out.print(anInt + " ");
+                }
             }
             System.out.println();
         }
+        System.out.println();
+    }
+
+    public static void printMatrixSkipZeroRowAndColumn(int[][] matrix) {
+        for (int i = 1; i < matrix.length; i++) {
+            for (int j = 1; j < matrix[i].length; j++) {
+                if (999999 == matrix[i][j]) {
+                    System.out.print("INF ");
+                } else {
+                    System.out.print(matrix[i][j] + " ");
+                }
+            }
+            System.out.println();
+        }
+        System.out.println();
     }
 }
