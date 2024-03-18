@@ -11,8 +11,6 @@ public class MultiStageGraph {
     public static void main(String[] args) {
         MultiStageGraph msg = new MultiStageGraph();
         List<GraphVertex> vertices = msg.generateListOfVertices();
-//        int[][] matrix = msg.calculateEdges(vertices);
-//        Utilities.printMatrixSkipZeroRowAndColumn(matrix);
 
         int[] optimalPath = msg.findPath(vertices, 4);
         Utilities.printIntArray(optimalPath);
@@ -62,12 +60,12 @@ public class MultiStageGraph {
         //[vertex 'from'][vertex 'to'] = weight
         int[][] result = new int[size][size];
 
-        //initially fill matrix with zeroes
-        for (int i = 1; i < size; i++) {
-            for (int j = 1; j < size; j++) {
-                result[i][j] = 0;
-            }
-        }
+//        //initially fill matrix with zeroes
+//        for (int i = 1; i < size; i++) {
+//            for (int j = 1; j < size; j++) {
+//                result[i][j] = 0;
+//            }
+//        }
 
         //Iterate over each vertex of the graph
         for (GraphVertex vertex : vertices) {
