@@ -2,13 +2,17 @@ package optimizationproblems.greedymethod;
 
 import utility.KnapsackItem;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
+
+import static utility.Utilities.generateKnapsackItemsList;
 
 public class Knapsack {
     public static void main(String[] args) {
         Knapsack knapsack = new Knapsack();
-        List<KnapsackItem> knapsackItemList = knapsack.generateList();
+        List<KnapsackItem> knapsackItemList = generateKnapsackItemsList(5, 20, 30, 30);
         System.out.println(knapsackItemList);
 
         System.out.println(knapsack.findBestKnapsackValue(knapsackItemList, 15d));
@@ -34,20 +38,6 @@ public class Knapsack {
                 value += ((double) item.getValue() / item.getWeight()) * requiredItemWeight;
                 currentWeight += requiredItemWeight;
             }
-        }
-        return result;
-    }
-    private List<KnapsackItem> generateList() {
-        List<KnapsackItem> result = new ArrayList<>();
-        Random random = new Random();
-
-        int minAmount = 5;
-        int maxAmount = 20;
-        int amountOfItems = random.nextInt(maxAmount - minAmount + 1) + minAmount;
-
-        for (int i = 0; i < amountOfItems; i++) {
-            KnapsackItem item = new KnapsackItem(random.nextInt(30) + 1, random.nextInt(30) + 1);
-            result.add(item);
         }
         return result;
     }

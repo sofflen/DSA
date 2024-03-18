@@ -1,8 +1,10 @@
 package utility;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 public class Utilities {
 
@@ -70,5 +72,18 @@ public class Utilities {
             System.out.println();
         }
         System.out.println();
+    }
+
+    public static List<KnapsackItem> generateKnapsackItemsList(int minAmount, int maxAmount, int maxValue, int maxWeight) {
+        List<KnapsackItem> result = new ArrayList<>();
+        Random random = new Random();
+
+        int amountOfItems = random.nextInt(maxAmount - minAmount + 1) + minAmount;
+
+        for (int i = 0; i < amountOfItems; i++) {
+            KnapsackItem item = new KnapsackItem(random.nextInt(maxValue) + 1, random.nextInt(maxWeight) + 1);
+            result.add(item);
+        }
+        return result;
     }
 }
