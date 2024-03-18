@@ -6,15 +6,28 @@ import java.util.Objects;
 
 public class GraphVertex {
     private final int id;
-
+    private int weight;
     private final Map<GraphVertex, Integer> directionMap = new HashMap<>();
 
     public GraphVertex(int id) {
         this.id = id;
     }
 
+    public GraphVertex(int id, int weight) {
+        this.id = id;
+        this.weight = weight;
+    }
+
     public int getId() {
         return id;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
     }
 
     public Map<GraphVertex, Integer> getDirectionMap() {
